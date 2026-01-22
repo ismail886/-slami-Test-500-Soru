@@ -7,3 +7,12 @@ sertifika.png
 .DS_Store
 .idea/
 *.iml
+*.pyc
+__pycache__/
+.venv/
+*.png
+*.jpg
+sertifika.png
+.DS_Store
+.idea/
+*.iml
