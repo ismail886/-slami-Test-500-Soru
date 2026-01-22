@@ -1,1 +1,1 @@
-# -slami-Test-500-Soru
+# -Islamı-Test-500-Soru
