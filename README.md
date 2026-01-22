@@ -245,6 +245,62 @@ pip install tkinter pillow qrcode reportlab
 
 ---
 
+# İslami Test Sistemi - 50 Test, 500 Soru
+
+Python Tkinter ile hazırlanmış, **50 test** ve **500 soru** içeren İslami bilgi testi uygulaması.
+
+## 🎯 Özellikler
+
+✅ **50 Test** - Her test 10 sorulu
+✅ **500 Soru** - Kapsamlı İslami bilgi
+✅ **Renkli Arayüz** - Python Tkinter GUI
+✅ **Sertifika Sistemi** - QR kod ile sertifika oluşturma
+✅ **Dinamik Puan Hesaplama** - Başarı yüzdesi gösterimi
+✅ **Kolay Kurulum** - Basit ve hızlı
+
+## 🚀 Kurulum
+
+### Gerekli Kütüphaneler
+
+```bash
+pip install pillow qrcode
+```
+
+### Çalıştırma
+
+**Windows:**
+```bash
+python islami_test_python_46.py
+```
+
+**Linux/Mac:**
+```bash
+python3 islami_test_python_46.py
+```
+
+## 📊 Test Yapısı
+
+- Test 1-10: İmanın şartları, Kur'an, Namaz
+- Test 11-20: Oruç, Zekât, Hac
+- Test 21-50: Peygamberler, Sahabeler, İslami tarih
+
+## 📜 Sertifika
+
+Testi tamamladıktan sonra:
+- Adınızı girin
+- Otomatik sertifika oluşturulur
+- QR kod ile doğrulama yapabilirsiniz
+
+## 👨‍💻 Geliştirici
+
+İsmail886
+
+## 📝 Lisans
+
+Open Source - Özgürce kullanabilirsiniz
+
+...
+
 **🕌 İslami Bilgi Testleri - Kapsamlı Eğitim Platformu**  
 *Tarih: 20 Ocak 2026 | Sürüm: 1.0 | Dil: Türkçe*
 =======
