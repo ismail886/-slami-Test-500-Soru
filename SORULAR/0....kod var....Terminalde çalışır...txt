@@ -1,0 +1,186 @@
+📘 İSLAMİ BİLGİLER – TEST 1 (10 SORU)
+1. İslam’ın beş şartından biri aşağıdakilerden hangisidir?
+
+A) Zekâ
+B) Oruç
+C) Hicret
+D) Cihat
+
+2. Kur’an-ı Kerim hangi ayda indirilmeye başlanmıştır?
+
+A) Muharrem
+B) Recep
+C) Ramazan
+D) Şaban
+
+3. Hz. Muhammed (s.a.v.)’e ilk vahiy hangi melek aracılığıyla gelmiştir?
+
+A) Azrail
+B) Mikail
+C) İsrafil
+D) Cebrail
+
+4. Günde kaç vakit namaz farzdır?
+
+A) 3
+B) 4
+C) 5
+D) 6
+
+5. Aşağıdakilerden hangisi İslam’ın şartlarından biri değildir?
+
+A) Namaz
+B) Oruç
+C) Hac
+D) Kurban kesmek
+
+6. Kur’an-ı Kerim kaç sureden oluşur?
+
+A) 110
+B) 112
+C) 114
+D) 116
+
+7. “İman” kavramı aşağıdakilerden hangisini ifade eder?
+
+A) İbadet etmek
+B) Allah’a ve esaslara gönülden inanmak
+C) İyi insan olmak
+D) Günah işlememek
+
+8. Zekât kimlere verilir?
+
+A) Sadece akrabalara
+B) Zenginlere
+C) Fakir ve ihtiyaç sahiplerine
+D) Herkese
+
+9. Hz. Muhammed’in (s.a.v.) doğduğu şehir neresidir?
+
+A) Medine
+B) Kudüs
+C) Mekke
+D) Taif
+
+10. Aşağıdakilerden hangisi haram kabul edilir?
+
+A) Sadaka vermek
+B) Yalan söylemek
+C) Selam vermek
+D) İlim öğrenmek
+
+✅ CEVAP ANAHTARI
+
+1️⃣ B
+2️⃣ C
+3️⃣ D
+4️⃣ C
+5️⃣ D
+6️⃣ C
+7️⃣ B
+8️⃣ C
+9️⃣ C
+🔟 B
+
+
+
+
+
+
+# İslami Bilgiler İnteraktif Test
+
+sorular = [
+    {
+        "soru": "İslam’ın beş şartından biri aşağıdakilerden hangisidir?",
+        "secenekler": ["A) Zekâ", "B) Oruç", "C) Hicret", "D) Cihat"],
+        "cevap": "B"
+    },
+    {
+        "soru": "Kur’an-ı Kerim hangi ayda indirilmeye başlanmıştır?",
+        "secenekler": ["A) Muharrem", "B) Recep", "C) Ramazan", "D) Şaban"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.)’e ilk vahiy hangi melek aracılığıyla gelmiştir?",
+        "secenekler": ["A) Azrail", "B) Mikail", "C) İsrafil", "D) Cebrail"],
+        "cevap": "D"
+    },
+    {
+        "soru": "Günde kaç vakit namaz farzdır?",
+        "secenekler": ["A) 3", "B) 4", "C) 5", "D) 6"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Aşağıdakilerden hangisi İslam’ın şartlarından biri değildir?",
+        "secenekler": ["A) Namaz", "B) Oruç", "C) Hac", "D) Kurban kesmek"],
+        "cevap": "D"
+    },
+    {
+        "soru": "Kur’an-ı Kerim kaç sureden oluşur?",
+        "secenekler": ["A) 110", "B) 112", "C) 114", "D) 116"],
+        "cevap": "C"
+    },
+    {
+        "soru": "İman neyi ifade eder?",
+        "secenekler": [
+            "A) İbadet etmek",
+            "B) Allah’a ve iman esaslarına gönülden inanmak",
+            "C) İyi insan olmak",
+            "D) Günah işlememek"
+        ],
+        "cevap": "B"
+    },
+    {
+        "soru": "Zekât kimlere verilir?",
+        "secenekler": [
+            "A) Sadece akrabalara",
+            "B) Zenginlere",
+            "C) Fakir ve ihtiyaç sahiplerine",
+            "D) Herkese"
+        ],
+        "cevap": "C"
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.) hangi şehirde doğmuştur?",
+        "secenekler": ["A) Medine", "B) Kudüs", "C) Mekke", "D) Taif"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Aşağıdakilerden hangisi haramdır?",
+        "secenekler": [
+            "A) Sadaka vermek",
+            "B) Yalan söylemek",
+            "C) Selam vermek",
+            "D) İlim öğrenmek"
+        ],
+        "cevap": "B"
+    }
+]
+
+dogru = 0
+
+print("\n📘 İSLAMİ BİLGİLER TESTİ")
+print("-" * 30)
+
+for i, soru in enumerate(sorular, start=1):
+    print(f"\n{i}. {soru['soru']}")
+    for secenek in soru["secenekler"]:
+        print(secenek)
+
+    while True:
+        cevap = input("Cevabınız (A/B/C/D): ").upper()
+        if cevap in ["A", "B", "C", "D"]:
+            break
+        print("❗ Lütfen A, B, C veya D giriniz.")
+
+    if cevap == soru["cevap"]:
+        print("✅ Doğru!")
+        dogru += 1
+    else:
+        print(f"❌ Yanlış! Doğru cevap: {soru['cevap']}")
+
+print("\n📊 TEST SONUCU")
+print("-" * 30)
+print(f"Doğru Sayısı : {dogru}")
+print(f"Yanlış Sayısı: {len(sorular) - dogru}")
+print(f"Puan        : {dogru * 10} / 100")

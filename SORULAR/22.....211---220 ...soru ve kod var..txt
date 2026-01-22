@@ -1,0 +1,107 @@
+🌟 Genel Kavramlar
+
+31. Takva ne anlama gelir?
+A) Korkmak
+B) Allah’a karşı sorumluluk bilinci
+C) İlim
+D) Güç
+
+32. Dua ne demektir?
+A) Okumak
+B) Yardım istemek
+C) Allah’a yalvarmak
+D) Sabretmek
+
+33. İhlas nedir?
+A) Gösteriş
+B) Samimiyet
+C) Sabır
+D) Cesaret
+
+34. Niyet ibadetlerde neden önemlidir?
+A) Gelenek olduğu için
+B) Şart olmadığı için
+C) İbadeti geçerli kıldığı için
+D) Kolaylık sağladığı için
+
+35. Sünnet neyi kapsar?
+A) Kur’an ayetlerini
+B) Sahabe sözlerini
+C) Peygamberimizin söz ve davranışlarını
+D) Mezhep görüşlerini
+
+
+
+cevap anahtarı... 31-B 32-C 33-B 34-C 35-C
+
+
+
+questions_31_40 = [
+    {
+        "q": "31. Takva ne anlama gelir?",
+        "a": ["Korkmak", "Allah’a karşı sorumluluk bilinci", "İlim", "Güç"],
+        "c": 1
+    },
+    {
+        "q": "32. Dua ne demektir?",
+        "a": ["Okumak", "Yardım istemek", "Allah’a yalvarmak", "Sabretmek"],
+        "c": 2
+    },
+    {
+        "q": "33. İhlas nedir?",
+        "a": ["Gösteriş", "Samimiyet", "Sabır", "Cesaret"],
+        "c": 1
+    },
+    {
+        "q": "34. Niyet ibadetlerde neden önemlidir?",
+        "a": [
+            "Gelenek olduğu için",
+            "Şart olmadığı için",
+            "İbadeti geçerli kıldığı için",
+            "Kolaylık sağladığı için"
+        ],
+        "c": 2
+    },
+    {
+        "q": "35. Sünnet neyi kapsar?",
+        "a": [
+            "Kur’an ayetlerini",
+            "Sahabe sözlerini",
+            "Peygamberimizin söz ve davranışlarını",
+            "Mezhep görüşlerini"
+        ],
+        "c": 2
+    },
+    {
+        "q": "36. Farz ibadetlerin terk edilmesi neye sebep olur?",
+        "a": ["Sevap", "Mübah", "Günah", "Sünnet"],
+        "c": 2
+    },
+    {
+        "q": "37. İslam dininde helal neyi ifade eder?",
+        "a": ["Yasak olanı", "Serbest ve izin verileni", "Şüpheli olanı", "Zorunlu olanı"],
+        "c": 1
+    },
+    {
+        "q": "38. Haramdan kaçınmak hangi kavramla ilgilidir?",
+        "a": ["Takva", "Cesaret", "Sabır", "Tevekkül"],
+        "c": 0
+    },
+    {
+        "q": "39. İbadetlerin kabul olması için gerekli iki temel şart hangisidir?",
+        "a": [
+            "Güç ve imkân",
+            "Niyet ve samimiyet",
+            "Bilgi ve yaş",
+            "Zaman ve mekân"
+        ],
+        "c": 1
+    },
+    {
+        "q": "40. Allah’a güvenip sonucu O’na bırakmaya ne denir?",
+        "a": ["Sabır", "Şükür", "Tevekkül", "İhlas"],
+        "c": 2
+    }
+]
+
+

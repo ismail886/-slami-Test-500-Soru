@@ -1,0 +1,372 @@
+import tkinter as tk                   # tkinter modülü
+from tkinter import ttk, messagebox    # tkinter modülleri
+import winsound                        # ses modülü
+import time                            # zaman modülü
+from datetime import datetime          # tarih modülü ekleme
+# ------------------ 100 SORU ------------------
+
+all_questions = [
+    # TEST 1 (1-10)
+    {"q": "1. İmanın şartları kaç tanedir?", "a": ["4", "5", "6", "7"], "c": 2},
+    {"q": "2. Allah'ın 'el-Alîm' isminin anlamı nedir?", "a": ["Affedici", "Her şeyi bilen", "Güçlü", "Merhametli"], "c": 1},
+    {"q": "3. Meleklerin yaratıldığı varlık nedir?", "a": ["Ateş", "Toprak", "Su", "Nur"], "c": 3},
+    {"q": "4. Ahiret hayatının başlamasına ne denir?", "a": ["Haşir", "Kıyamet", "Mizan", "Sırat"], "c": 1},
+    {"q": "5. Peygamberlerin doğru sözlü olmalarına ne ad verilir?", "a": ["Emanet", "Fetanet", "Sıdk", "Tebliğ"], "c": 2},
+    {"q": "6. Kur'an-ı Kerim kaç sureden oluşur?", "a": ["112", "113", "114", "115"], "c": 2},
+    {"q": "7. İlk indirilen sure hangisidir?", "a": ["Fatiha", "Alak", "Nas", "Bakara"], "c": 1},
+    {"q": "8. Kur'an-ı Kerim hangi dilde indirilmiştir?", "a": ["İbranice", "Arapça", "Süryanice", "Farsça"], "c": 1},
+    {"q": "9. En uzun sure hangisidir?", "a": ["Nisa", "Âl-i İmran", "Bakara", "En'am"], "c": 2},
+    {"q": "10. Kur'an'da adı geçen tek kadın kimdir?", "a": ["Hz. Hatice", "Hz. Aişe", "Hz. Meryem", "Hz. Fatıma"], "c": 2},
+    
+    # TEST 2 (11-20)
+    {"q": "11. İslam'ın şartları kaç tanedir?", "a": ["4", "5", "6", "7"], "c": 1},
+    {"q": "12. İslam'da farz olan ilk ibadet hangisidir?", "a": ["Oruç", "Zekât", "Namaz", "Hac"], "c": 2},
+    {"q": "13. Hicret hangi şehirden hangi şehre yapılmıştır?", "a": ["Mekke–Taif", "Mekke–Medine", "Medine–Kudüs", "Mekke–Şam"], "c": 1},
+    {"q": "14. Peygamberimizin babasının adı nedir?", "a": ["Abdullah", "Ebu Talip", "Abbas", "Haris"], "c": 0},
+    {"q": "15. Oruç tutmanın farz olduğu ay hangisidir?", "a": ["Muharrem", "Şaban", "Ramazan", "Recep"], "c": 2},
+    {"q": "16. İslam'da ilk müezzin kimdir?", "a": ["Hz. Ali", "Hz. Ömer", "Bilal-i Habeşi", "Ammar"], "c": 2},
+    {"q": "17. Kur'an-ı Kerim'in indirilmeye başlandığı gece hangisidir?", "a": ["Miraç", "Berat", "Kadir", "Regaip"], "c": 2},
+    {"q": "18. Namazda kıyam ne demektir?", "a": ["Oturmak", "Secde", "Ayakta durmak", "Rükû"], "c": 2},
+    {"q": "19. Hz. Peygamber'in hanımlarına ne ad verilir?", "a": ["Müminler", "Ümmehatül Müminin", "Sahabeler", "Melikeler"], "c": 1},
+    {"q": "20. Kabe'nin ilk inşa edicisi kimdir?", "a": ["Hz. İbrahim", "Hz. Muhammed", "Hz. Nuh", "Hz. Âdem"], "c": 0},
+    
+    # TEST 3 (21-30)
+    {"q": "21. İslam'da haram olan içkiye ne denir?", "a": ["Hamr", "Meyte", "Hınzır", "Kan"], "c": 0},
+    {"q": "22. Cuma namazının farz olduğu rekat sayısı kaçtır?", "a": ["2", "3", "4", "6"], "c": 0},
+    {"q": "23. Zekat vermek kimlere farzdır?", "a": ["Herkese", "Fakirlere", "Nisap miktarı mala sahip olanlara", "Zenginlere"], "c": 2},
+    {"q": "24. İslam'da ilk kıble neresidir?", "a": ["Kabe", "Mescid-i Aksa", "Mescid-i Nebevi", "Mescid-i Haram"], "c": 1},
+    {"q": "25. Peygamberimizin doğum yılına ne ad verilir?", "a": ["Hicret Yılı", "Fil Yılı", "Hendek Yılı", "Fetih Yılı"], "c": 1},
+    {"q": "26. Namazda okunan en kısa sure hangisidir?", "a": ["İhlas", "Kevser", "Felak", "Nas"], "c": 1},
+    {"q": "27. Hac ibadetinin farz olduğu İslami ay hangisidir?", "a": ["Zilkade", "Zilhicce", "Muharrem", "Safer"], "c": 1},
+    {"q": "28. Peygamberimize ilk vahiy hangi melek tarafından getirilmiştir?", "a": ["Mikail", "Azrail", "İsrafil", "Cebrail"], "c": 3},
+    {"q": "29. İslam'da niyet hangi ibadet için şarttır?", "a": ["Zekât", "Oruç", "Namaz", "Hepsi"], "c": 3},
+    {"q": "30. Peygamberimizin doğduğu şehir hangisidir?", "a": ["Medine", "Mekke", "Kudüs", "Taif"], "c": 1},
+    
+    # TEST 4 (31-40)
+    {"q": "31. Namazda rükûdan sonra doğrulmaya ne denir?", "a": ["Secde", "Kıyam", "Kavme", "Celse"], "c": 2},
+    {"q": "32. İslam'da anne-babaya iyi davranmaya ne denir?", "a": ["Takva", "İhsan", "Birr", "Sabır"], "c": 2},
+    {"q": "33. Kur'an'da 'Oku' anlamına gelen ilk kelime hangisidir?", "a": ["Elhamdülillah", "İkra", "Kul", "Allah"], "c": 1},
+    {"q": "34. Peygamberimizin sütannesi kimdir?", "a": ["Amine", "Halime", "Ümmü Gülsüm", "Safiye"], "c": 1},
+    {"q": "35. İslam'da cuma namazı kimlere farzdır?", "a": ["Kadınlara", "Çocuklara", "Erkeklere", "Yolculara"], "c": 2},
+    {"q": "36. Kur'an'ın son suresi hangisidir?", "a": ["Felak", "Nas", "İhlas", "Kevser"], "c": 1},
+    {"q": "37. 'Allah yolunda mücadele' anlamına gelen kavram hangisidir?", "a": ["Hicret", "Cihat", "Tebliğ", "Sabır"], "c": 1},
+    {"q": "38. Namazda iki secde arasında oturmaya ne denir?", "a": ["Kavme", "Kıyam", "Celse", "Rükû"], "c": 2},
+    {"q": "39. İslam'da yalan söylememek hangi sıfatla ilgilidir?", "a": ["İsmet", "Sıdk", "Emanet", "Fetanet"], "c": 1},
+    {"q": "40. Peygamberimizin en küçük kızı kimdir?", "a": ["Zeynep", "Rukiye", "Ümmü Gülsüm", "Fatıma"], "c": 3},
+    
+    # TEST 5 (41-50)
+    {"q": "41. Kur'an'da besmele ile başlayan sure hangisidir?", "a": ["Enfal", "Neml", "Tevbe", "Yasin"], "c": 1},
+    {"q": "42. Oruçluyken bilerek yemek yemek neyi bozar?", "a": ["Abdest", "Namaz", "Oruç", "Gusül"], "c": 2},
+    {"q": "43. İslam'da komşuluk hakkına ne ad verilir?", "a": ["Kul hakkı", "İnsan hakkı", "Adalet", "Merhamet"], "c": 0},
+    {"q": "44. Peygamberimize verilen ilk mucize hangisidir?", "a": ["Miraç", "Kur'an", "Ay'ın yarılması", "İsra"], "c": 1},
+    {"q": "45. Kur'an'ın indirildiği dağın adı nedir?", "a": ["Uhud", "Nur", "Sevr", "Cudi"], "c": 1},
+    {"q": "46. İslam'da sadaka vermek hangi davranışın göstergesidir?", "a": ["Cimrilik", "İbadet", "Yardımlaşma", "Sabır"], "c": 2},
+    {"q": "47. Peygamberimizin kabri hangi şehirde bulunmaktadır?", "a": ["Mekke", "Kudüs", "Medine", "Taif"], "c": 2},
+    {"q": "48. Kur'an'ın toplanması hangi halife döneminde tamamlanmıştır?", "a": ["Hz. Ali", "Hz. Ömer", "Hz. Osman", "Hz. Ebubekir"], "c": 2},
+    {"q": "49. İslam'da içten ve samimi ibadete ne denir?", "a": ["İhsan", "İhlas", "Takva", "Sabır"], "c": 1},
+    {"q": "50. Namazdan sonra '33 defa' okunan zikir hangisidir?", "a": ["Elhamdülillah", "Allahu Ekber", "Sübhanallah", "Hepsi"], "c": 3},
+    
+    # TEST 6 (51-60)
+    {"q": "51. Kur'an'da adı geçen tek sahabe kimdir?", "a": ["Hz. Ali", "Zeyd bin Harise", "Bilal-i Habeşi", "Hz. Ebubekir"], "c": 1},
+    {"q": "52. İslam'da yoksula verilen karşılıksız yardıma ne denir?", "a": ["Zekât", "Sadaka", "Fitre", "Hediye"], "c": 1},
+    {"q": "53. Fitre hangi ibadetle ilgilidir?", "a": ["Namaz", "Oruç", "Hac", "Zekât"], "c": 1},
+    {"q": "54. Peygamberimizin mesleği neydi?", "a": ["Çiftçi", "Demirci", "Tüccar", "Öğretmen"], "c": 2},
+    {"q": "55. Kur'an'da 'Rahman' suresi kaç ayetten oluşur?", "a": ["55", "65", "78", "88"], "c": 2},
+    {"q": "56. İslam'da affetmek hangi erdemle ilgilidir?", "a": ["Sabır", "Merhamet", "Cesaret", "Takva"], "c": 1},
+    {"q": "57. Peygamberimizin vefat ettiği yaş kaçtır?", "a": ["60", "61", "62", "63"], "c": 3},
+    {"q": "58. İslam'da helal kazanç neyi temsil eder?", "a": ["Bereket", "Güç", "Ün", "Makam"], "c": 0},
+    {"q": "59. Kur'an'da 'anne' anlamında kullanılan kelime hangisidir?", "a": ["Ümm", "Valid", "Ebe", "Anne"], "c": 0},
+    {"q": "60. İslam'da kibirli olmak hangi davranıştır?", "a": ["Günah", "Sevap", "Farz", "Sünnet"], "c": 0},
+    
+    # TEST 7 (61-70)
+    {"q": "61. Peygamberimizin son hutbesine ne ad verilir?", "a": ["Veda Hutbesi", "Miraç Hutbesi", "Cuma Hutbesi", "Tebliğ Hutbesi"], "c": 0},
+    {"q": "62. Namazda okunan kısa surelere ne denir?", "a": ["Uzun sure", "Mekki sure", "Kısa sure", "Zamm-ı sure"], "c": 3},
+    {"q": "63. Kur'an'da cennet için kullanılan isim hangisidir?", "a": ["Sırat", "Firdevs", "Araf", "Kevser"], "c": 1},
+    {"q": "64. İslam'da israf neyi ifade eder?", "a": ["Tasarruf", "Ölçülü olmak", "Gereksiz harcama", "Yardımlaşma"], "c": 2},
+    {"q": "65. Peygamberimizin kabri hangi mescidin içindedir?", "a": ["Mescid-i Haram", "Mescid-i Aksa", "Mescid-i Nebevi", "Kuba Mescidi"], "c": 2},
+    {"q": "66. Kur'an'da cehennem için kullanılan isim hangisidir?", "a": ["Kevser", "Sırat", "Cehim", "Firdevs"], "c": 2},
+    {"q": "67. İslam'da doğru sözlülüğe ne denir?", "a": ["Sıdk", "Emanet", "İsmet", "Fetanet"], "c": 0},
+    {"q": "68. Peygamberimizin en yakın arkadaşı kimdir?", "a": ["Hz. Ömer", "Hz. Ali", "Hz. Ebubekir", "Hz. Osman"], "c": 2},
+    {"q": "69. Kur'an'ın korunmasını Allah'ın üstlendiği ayet hangi surededir?", "a": ["Bakara", "Hicr", "Yasin", "Nisa"], "c": 1},
+    {"q": "70. İslam'da misafire ikram etmek ne sayılır?", "a": ["Zorunluluk", "Günah", "Sevap", "İsraf"], "c": 2},
+    
+    # TEST 8 (71-80)
+    {"q": "71. Peygamberimizin 'güzel ahlak' ile ilgili sözü hangi kavramı anlatır?", "a": ["İbadet", "Ahlak", "Takva", "Sabır"], "c": 1},
+    {"q": "72. İslam'da helal–haramı belirleyen temel kaynak hangisidir?", "a": ["Hadis", "İcma", "Kıyas", "Kur'an"], "c": 3},
+    {"q": "73. Kur'an'ın ana konusu nedir?", "a": ["Tarih", "Ahlak", "İnanç", "Hepsi"], "c": 3},
+    {"q": "74. İslam'da sözünde durmak hangi kavramla ilgilidir?", "a": ["Sabır", "Emanet", "Sıdk", "Takva"], "c": 1},
+    {"q": "75. Peygamberimizin son peygamber olması ne ile ifade edilir?", "a": ["Risalet", "Nübüvvet", "Hatm-i Nübüvvet", "Tebliğ"], "c": 2},
+    {"q": "76. İslam'da insanların eşit olduğunu vurgulayan hutbe hangisidir?", "a": ["Cuma Hutbesi", "Veda Hutbesi", "Miraç Hutbesi", "Tebliğ Hutbesi"], "c": 1},
+    {"q": "77. Peygamberlerin Allah'tan aldıkları emirleri insanlara eksiksiz iletmesine ne denir?", "a": ["Emanet", "Tebliğ", "İsmet", "Fetanet"], "c": 1},
+    {"q": "78. Namaz kaç rekattır (farz namazların toplamı günlük)?", "a": ["15", "17", "20", "40"], "c": 1},
+    {"q": "79. İslam'ın beş şartından biri olan şehadet nedir?", "a": ["Tanıklık", "Namaz", "Oruç", "Zekât"], "c": 0},
+    {"q": "80. Kur'an'da kaç peygamberin ismi geçer?", "a": ["23", "25", "27", "30"], "c": 1},
+    
+    # TEST 9 (81-90)
+    {"q": "81. Hz. Muhammed'in peygamberliğe başladığı yaş kaçtır?", "a": ["30", "35", "40", "45"], "c": 2},
+    {"q": "82. İslam'da namaz kılmanın vacip olduğu yaş kaçtır?", "a": ["7", "10", "12", "15"], "c": 3},
+    {"q": "83. Kur'an'ın ilk mushaf haline getirilmesi hangi halife dönemindedir?", "a": ["Hz. Ebubekir", "Hz. Ömer", "Hz. Osman", "Hz. Ali"], "c": 0},
+    {"q": "84. Bedir Savaşı hangi yılda olmuştur?", "a": ["1. Hicri yıl", "2. Hicri yıl", "3. Hicri yıl", "5. Hicri yıl"], "c": 1},
+    {"q": "85. İslam'da sabır hangi kategoriye girer?", "a": ["Farz", "Vacip", "Fazilet", "Sünnet"], "c": 2},
+    {"q": "86. Peygamberimizin annesi kimdir?", "a": ["Amine", "Halime", "Hatice", "Aişe"], "c": 0},
+    {"q": "87. İslam'da gusül abdesti hangi durumda alınır?", "a": ["Her namaz öncesi", "Sadece cuma", "Cünüplükten sonra", "Her gün"], "c": 2},
+    {"q": "88. Mekke'nin fethi hangi yılda gerçekleşmiştir?", "a": ["6. Hicri yıl", "8. Hicri yıl", "10. Hicri yıl", "11. Hicri yıl"], "c": 1},
+    {"q": "89. İslam'da tevhid ne demektir?", "a": ["Allah'ın birliği", "Namaz", "Oruç", "Hac"], "c": 0},
+    {"q": "90. Kur'an'ın nazil olduğu ilk mağaranın adı nedir?", "a": ["Sevr", "Hira", "Uhud", "Nur"], "c": 1},
+    
+    # TEST 10 (91-100)
+    {"q": "91. İslam'da kadınların başını örtmesine ne denir?", "a": ["Tesettür", "Takva", "Edep", "İffet"], "c": 0},
+    {"q": "92. Peygamberimizin ilk eşi kimdir?", "a": ["Aişe", "Hatice", "Hafsa", "Sevde"], "c": 1},
+    {"q": "93. İslam'da faiz ne anlama gelir?", "a": ["Haram kazanç", "Helal kazanç", "Ticaret", "Yardım"], "c": 0},
+    {"q": "94. Kur'an'da en çok geçen peygamber kimdir?", "a": ["Hz. Muhammed", "Hz. İbrahim", "Hz. Musa", "Hz. İsa"], "c": 2},
+    {"q": "95. İslam'da kurban kesmek hangi ibadetle ilgilidir?", "a": ["Ramazan", "Hac", "Cuma", "Zekât"], "c": 1},
+    {"q": "96. Namazda kaç defa secde yapılır (bir rekatta)?", "a": ["1", "2", "3", "4"], "c": 1},
+    {"q": "97. İslam'da temizliğe verilen önem hangi sözle ifade edilir?", "a": ["İmanın yarısı", "İmanın şartı", "İmanın tamamı", "Sünnet"], "c": 0},
+    {"q": "98. Kur'an'ın en kısa suresi hangisidir?", "a": ["Kevser", "İhlas", "Nas", "Felak"], "c": 0},
+    {"q": "99. İslam'da namaz kılarken hangi yön önemlidir?", "a": ["Doğu", "Batı", "Kıble", "Kuzey"], "c": 2},
+    {"q": "100. Peygamberimizin vefat tarihi hangi ayda olmuştur?", "a": ["Muharrem", "Safer", "Rebiulevvel", "Recep"], "c": 2},
+]
+# ------------------ SERTİFİKA FONKSİYONU ------------------
+
+def sertifika_goster(ad_soyad, puan):           # sertifika göster fonksiyonu
+    """Sertifika penceresi gösterir"""
+    win = tk.Toplevel()                          # sertifika penceresi
+    win.title("🎓 Başarı Sertifikası")           
+    win.geometry("700x500")                      # pencere boyutu
+    win.configure(bg="#ffffff")                # pencere arka plan rengi
+    
+    # Çerçeve
+    cerceve = tk.Frame(win, bg="#0d47a1", padx=20, pady=20)         # çerçeve oluşturma
+    cerceve.pack(fill="both", expand=True, padx=20, pady=20)          # çerçeve yerleşimi
+    
+    # İç beyaz alan
+    ic_alan = tk.Frame(cerceve, bg="#ffffff", padx=30, pady=30)     # iç alan çerçevesi
+    ic_alan.pack(fill="both", expand=True)                            # iç alan çerçevesi
+    
+    # Başlık
+    tk.Label(                                  # etiket oluşturma
+        ic_alan,                               # etiket oluşturma
+        text="🎓 BAŞARI SERTİFİKASI 🎓",       # başlık metni
+        font=("Segoe UI", 24, "bold"),          # başlık stili
+        bg="#ffffff",                         # arka plan rengi
+        fg="#0d47a1"                          # başlık rengi
+    ).pack(pady=20)                             # başlık etiketi
+    
+    # Altın çizgi
+    tk.Frame(ic_alan, bg="#ffd700", height=3).pack(fill="x", padx=50)   # altın çizgi ekleme
+    
+    # İsim
+    tk.Label(                          # etiket oluşturma
+        ic_alan,                       # etiket oluşturma
+        text=ad_soyad.upper(),         # isim büyük harflerle
+        font=("Segoe UI", 20, "bold"), # isim stili
+        bg="#ffffff",                # arka plan rengi
+        fg="#1976d2"                 # isim rengi
+    ).pack(pady=30)                    # isim etiketi
+    
+    # Açıklama
+    tk.Label(                                                 # etiket oluşturma
+        ic_alan,                                              # etiket oluşturma
+        text="İslami Test Sınavını Başarıyla Tamamlamıştır",   # açıklama metni
+        font=("Segoe UI", 14),            # açıklama stili
+        bg="#ffffff",                   # arka plan rengi
+        fg="#424242"                    # açıklama rengi
+    ).pack(pady=10)                       # açıklama etiketi
+    
+    # Puan
+    tk.Label(                              #
+        ic_alan,                           # etiket oluşturma
+        text=f"📊 Puan: {puan}/100",        
+        font=("Segoe UI", 16, "bold"),     # puan stili
+        bg="#ffffff",                    # arka plan rengi
+        fg="#2e7d32"                     # puan rengi
+    ).pack(pady=15)                        # puan etiketi
+    
+    # Tarih
+    tarih = datetime.now().strftime("%d.%m.%Y")      # tarih formatı
+    tk.Label(                                        # etiket oluşturma
+        ic_alan,                                     # etiket oluşturma
+        text=f"📅 Tarih: {tarih}",                  # tarih etiketi
+        font=("Segoe UI", 12),                      # tarih stili
+        bg="#ffffff",                             # arka plan rengi
+        fg="#757575"                              # tarih rengi
+    ).pack(pady=10)                                 # tarih etiketi
+    
+    # Altın çizgi
+    tk.Frame(ic_alan, bg="#ffd700", height=3).pack(fill="x", padx=50, pady=20)   # altın çizgi ekleme
+    # Kapat butonu
+    tk.Button(                         # buton oluşturma
+        ic_alan,                        # buton oluşturma
+        text="KAPAT",                   # buton metni
+        font=("Segoe UI", 12, "bold"),  # buton stili
+        bg="#d32f2f",                # buton arka plan rengi
+        fg="white",                    # buton yazı rengi
+        padx=30,                       # buton genişliği
+        pady=10,                       # buton yerleşimi
+        command=win.destroy            # pencere kapatma
+    ).pack(pady=10)                    # sertifika penceresi
+
+def isim_al_ve_sertifika(puan):        # isim al ve sertifika fonksiyonu
+    win = tk.Toplevel()                # isim giriş penceresi
+    win.title("İsim Girişi")           # pencere başlıgı
+    win.geometry("400x200")            # pencere boyutu
+    win.configure(bg="#e3f2fd")      # pencere arka plan rengi
+    win.grab_set()                     # modal pencere yapma
+
+    tk.Label(                           # etiket oluşturma
+        win,                            # etiket oluşturma
+        text="Ad Soyad Giriniz",        # etiket metni
+        font=("Segoe UI", 14, "bold"),  # etiket stili
+        bg="#e3f2fd"                  # etiket arka plan rengi
+    ).pack(pady=20)                     # etiket yerleşimi
+
+    entry = tk.Entry(win, font=("Segoe UI", 14), width=25)   # giriş kutusu
+    entry.pack(pady=10)               # giriş kutusu yerleşimi
+    entry.focus()                     # giriş kutusuna odaklan
+
+    def onayla():                     # onayla fonksiyonu
+        ad = entry.get().strip()      # girilen ismi al
+        if not ad:                    # boş isim kontrolü
+            messagebox.showwarning("Uyarı", "Lütfen isminizi giriniz!")   # boş isim kontrolü
+            return                               # boş isim kontrolü
+        win.destroy()                            # isim giriş penceresini kapat
+        sertifika_goster(ad, puan)               # sertifika gösterme fonksiyonu
+
+    tk.Button(                                 # buton oluşturma
+        win,                                   # buton oluşturma
+        text="Sertifikayı Göster",             # buton metni
+        font=("Segoe UI", 12, "bold"),         # buton stili
+        bg="#2196f3",                        # buton arka plan rengi
+        fg="white",                            # buton yazı rengi
+        padx=20,                               # buton genişliği
+        pady=8,                                # buton yerleşimi
+        command=onayla                         # onayla fonksiyonu
+    ).pack(pady=20)                            # sertifika butonu
+    
+    # Enter tuşu ile de onaylayabilsin
+    entry.bind('<Return>', lambda e: onayla())    # ------ İSLAMİ TEST PENCERESİ --------
+
+# ------------------ TKINTER PENCERE ------------------
+
+root = tk.Tk()                     # ana pancere
+root.title("İslami Test (01–100)") # pencere başlıgı
+root.geometry("900x600")           # pencere boyutu
+root.configure(bg="#e3f2fd")     # pencere arka plan rengi
+
+style = ttk.Style()                # stil ayarları
+style.theme_use("clam")            # tema seçimi
+style.configure("TButton", font=("Segoe UI", 12), padding=10)  # buton sitili
+
+current = 0                                             #  0-9 
+answers = [tk.IntVar(value=-1) for _ in range(100)]      # her soru için cevep değişkeni
+
+# ------------------ ANA FRAME ------------------
+
+frame = tk.Frame(root, bg="#e3f2fd")                  # ana pencere çerçevesi
+frame.pack(fill="both", expand=True, padx=30, pady=20)  # çerçeve yerleşimi
+
+question_label = tk.Label(                              # soru metni etiketi
+    frame, font=("Segoe UI", 16, "bold"),               # etiket stili
+    bg="#e3f2fd", wraplength=800, justify="left"      # etiket yerleşimi
+)
+question_label.pack(anchor="w", pady=15)                 # etiket yerleşimi
+
+radio_buttons = []                      # radyo butonları listesi
+for i in range(4):                      # 4 seçenek için döngü
+    rb = tk.Radiobutton(                # radyo buton oluşturma
+        frame, font=("Segoe UI", 13),   # buton sitili
+        bg="#e3f2fd", anchor="w"      # buton yerleşimi
+    )
+    rb.pack(fill="x", pady=5)           # buton yerleşimi
+    radio_buttons.append(rb)            # butonu listeye ekle
+
+# ------------------ FONKSİYONLAR ------------------
+
+def load_question(index):                                   # soru yükleme fonksiyonu
+    question_label.config(text=all_questions[index]["q"])   # soru metnini ayarlama
+    for i, rb in enumerate(radio_buttons):                  # seçenek metinlerini ayarlama
+        rb.config(                                          # radyo buton metni
+            text=all_questions[index]["a"][i],              # seçenek metni
+            variable=answers[index],                        # radyo buton değişkeni
+            value=i                                         # radyo buton degeri
+        )
+
+def next_q():                              # sonraki soru fonksiyonu
+    global current                         #current global değişkeni
+    if current < len(all_questions) - 1:   # son soruya gelmediyse
+        current += 1                       #current artır
+        load_question(current)             # sonraki soruyu yükle
+
+def prev_q():                              # önceki soru fonksiyonu
+    global current                         # current global değişkeni
+    if current > 0:                        # ilk soruda değilse
+        current -= 1                       # current azalt
+        load_question(current)             # önceki soruyu yükle
+
+def show_result():                         # sonuç gösterme fonksiyonu
+    score = 0                              # puan değişkeni
+    for i, q in enumerate(all_questions):  # soruları döngüle
+        if answers[i].get() == q["c"]:     # dogru cevap kopntrolü
+            score += 1                     # puanı artır
+
+    if score >= 60:                                             # geçme durumu
+        play_success_animation()                                # başarı animasyonu
+        messagebox.showinfo("SONUÇ", f"{score}/100 🎉 GEÇTİN")  # başarı mesajı
+        root.after(500, lambda: isim_al_ve_sertifika(score))     # sertifika alma
+    else:
+        messagebox.showwarning("SONUÇ", f"{score}/100 ❌ KALDIN") # başarısızlık mesajı
+
+def play_success_animation():                                    # başarı animasyonu fonksiyonu
+    try:
+        winsound.PlaySound("applause.wav",                         # alkış sesi
+                           winsound.SND_FILENAME | winsound.SND_ASYNC)  # ses dosyası
+    except:                                                        # ses dosyası bulunamama durumu
+        pass                                                       # hatayı yok say
+
+    anim = tk.Toplevel(root)          # animasyonpenceresi
+    anim.geometry("400x200")          # pencere boyutu
+    anim.configure(bg="#0d47a1")    # pencere arka plan rengi
+    tk.Label(                         # etiket
+        anim,                          # etiket metni
+        text="🎉 TEBRİKLER 🎉",        
+        font=("Segoe UI", 22, "bold"),  # etiket sitili
+        fg="white",                     # etiket metin rengi
+        bg="#0d47a1"                  # etiket arka plan rengi 
+    ).pack(expand=True)                 # etiket yerleşimi
+
+    anim.after(2000, anim.destroy)      # 2 saniye sonra pencereyi kapat
+
+# ------------------ BUTONLAR ------------------
+
+btn_frame = tk.Frame(root, bg="#e3f2fd")    # buton çerçevesi
+btn_frame.pack(pady=20)                       # buton yerleşimi
+
+ttk.Button(btn_frame, text="⏮ Geri", command=prev_q).grid(row=0, column=0, padx=10)          # geri butonu
+ttk.Button(btn_frame, text="İleri ⏭", command=next_q).grid(row=0, column=1, padx=10)         # ileri butonu
+ttk.Button(btn_frame, text="Testi Bitir", command=show_result).grid(row=0, column=2, padx=10)  # testi bitir butonu
+
+# ------------------ BAŞLAT ------------------
+
+load_question(current)                      # ilk soruyu yükle
+root.mainloop()                             # ana döngüyü başlat
+
+
+
+
+
+#  sorular 01.....100 arası 100 soru...tkinter modundadır...
+
+#  & "C:\Users\USER\Islamı_Test_Soruları/.venv/Scripts/python.exe" islami_test_python_35.py
+
+#  terminale bu kodu yapıştırın ve entere basın...
+
+#  bu test butonludur ...üstte static kod resmi var..böyle görüntüleniyor ...
+
+#  pycharm community de altta solda terminale tıkla .... açılan pencereye 3.sıradaki kodu yapıştır...
+
+#  & "E:/İslami Test Soruları/.venv/Scripts/python.exe" islami_test_python_35.py   Pardusda
+
+
+
+# 01 DEN 100 E KADAR İLERLEYEN SORULAR VAR...SONUNDA BAŞARI DURUMU VE SERTİFİKA ALMA VAR ...SES YOK..ANİMASYON YOK
+

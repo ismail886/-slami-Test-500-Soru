@@ -1,0 +1,567 @@
+# İslami Bilgiler İnteraktif Test
+
+sorular = [
+    {
+        "soru": "İslam’ın beş şartından biri aşağıdakilerden hangisidir?",
+        "secenekler": ["A) Zekâ", "B) Oruç", "C) Hicret", "D) Cihat"],
+        "cevap": "B"
+    },
+    {
+        "soru": "Kur’an-ı Kerim hangi ayda indirilmeye başlanmıştır?",
+        "secenekler": ["A) Muharrem", "B) Recep", "C) Ramazan", "D) Şaban"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.)’e ilk vahiy hangi melek aracılığıyla gelmiştir?",
+        "secenekler": ["A) Azrail", "B) Mikail", "C) İsrafil", "D) Cebrail"],
+        "cevap": "D"
+    },
+    {
+        "soru": "Günde kaç vakit namaz farzdır?",
+        "secenekler": ["A) 3", "B) 4", "C) 5", "D) 6"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Aşağıdakilerden hangisi İslam’ın şartlarından biri değildir?",
+        "secenekler": ["A) Namaz", "B) Oruç", "C) Hac", "D) Kurban kesmek"],
+        "cevap": "D"
+    },
+    {
+        "soru": "Kur’an-ı Kerim kaç sureden oluşur?",
+        "secenekler": ["A) 110", "B) 112", "C) 114", "D) 116"],
+        "cevap": "C"
+    },
+    {
+        "soru": "İman neyi ifade eder?",
+        "secenekler": [
+            "A) İbadet etmek",
+            "B) Allah’a ve iman esaslarına gönülden inanmak",
+            "C) İyi insan olmak",
+            "D) Günah işlememek"
+        ],
+        "cevap": "B"
+    },
+    {
+        "soru": "Zekât kimlere verilir?",
+        "secenekler": [
+            "A) Sadece akrabalara",
+            "B) Zenginlere",
+            "C) Fakir ve ihtiyaç sahiplerine",
+            "D) Herkese"
+        ],
+        "cevap": "C"
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.) hangi şehirde doğmuştur?",
+        "secenekler": ["A) Medine", "B) Kudüs", "C) Mekke", "D) Taif"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Aşağıdakilerden hangisi haramdır?",
+        "secenekler": [
+            "A) Sadaka vermek",
+            "B) Yalan söylemek",
+            "C) Selam vermek",
+            "D) İlim öğrenmek"
+        ],
+        "cevap": "B"
+    }
+]
+
+dogru = 0
+
+print("\n📘 İSLAMİ BİLGİLER TESTİ")
+print("-" * 30)
+
+for i, soru in enumerate(sorular, start=1):
+    print(f"\n{i}. {soru['soru']}")
+    for secenek in soru["secenekler"]:
+        print(secenek)
+
+    while True:
+        cevap = input("Cevabınız (A/B/C/D): ").upper()
+        if cevap in ["A", "B", "C", "D"]:
+            break
+        print("❗ Lütfen A, B, C veya D giriniz.")
+
+    if cevap == soru["cevap"]:
+        print("✅ Doğru!")
+        dogru += 1
+    else:
+        print(f"❌ Yanlış! Doğru cevap: {soru['cevap']}")
+
+print("\n📊 TEST SONUCU")
+print("-" * 30)
+print(f"Doğru Sayısı : {dogru}")
+print(f"Yanlış Sayısı: {len(sorular) - dogru}")
+print(f"Puan        : {dogru * 10} / 100")
+
+
+
+    ...….  terminalde bunu çalıştır  ...…
+
+python islami_test.py
+
+
+
+
+- - - - - - - - - - - - -- - - - - - - - - - --  - - - - - - - 
+
+# İslami Bilgiler İnteraktif Test (Başarı Durumu)
+
+sorular = [
+    {
+        "soru": "İslam’ın beş şartından biri aşağıdakilerden hangisidir?",
+        "secenekler": ["A) Zekât", "B) Oruç", "C) Hicret", "D) Cihat"],
+        "cevap": "B"
+    },
+    {
+        "soru": "Kur’an-ı Kerim hangi ayda indirilmeye başlanmıştır?",
+        "secenekler": ["A) Muharrem", "B) Recep", "C) Ramazan", "D) Şaban"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.)’e ilk vahiy hangi melek aracılığıyla gelmiştir?",
+        "secenekler": ["A) Azrail", "B) Mikail", "C) İsrafil", "D) Cebrail"],
+        "cevap": "D"
+    },
+    {
+        "soru": "Günde kaç vakit namaz farzdır?",
+        "secenekler": ["A) 3", "B) 4", "C) 5", "D) 6"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Aşağıdakilerden hangisi İslam’ın şartlarından biri değildir?",
+        "secenekler": ["A) Namaz", "B) Oruç", "C) Hac", "D) Kurban kesmek"],
+        "cevap": "D"
+    },
+    {
+        "soru": "Kur’an-ı Kerim kaç sureden oluşur?",
+        "secenekler": ["A) 110", "B) 112", "C) 114", "D) 116"],
+        "cevap": "C"
+    },
+    {
+        "soru": "İman neyi ifade eder?",
+        "secenekler": [
+            "A) İbadet etmek",
+            "B) Allah’a ve iman esaslarına gönülden inanmak",
+            "C) İyi insan olmak",
+            "D) Günah işlememek"
+        ],
+        "cevap": "B"
+    },
+    {
+        "soru": "Zekât kimlere verilir?",
+        "secenekler": [
+            "A) Sadece akrabalara",
+            "B) Zenginlere",
+            "C) Fakir ve ihtiyaç sahiplerine",
+            "D) Herkese"
+        ],
+        "cevap": "C"
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.) hangi şehirde doğmuştur?",
+        "secenekler": ["A) Medine", "B) Kudüs", "C) Mekke", "D) Taif"],
+        "cevap": "C"
+    },
+    {
+        "soru": "Aşağıdakilerden hangisi haramdır?",
+        "secenekler": [
+            "A) Sadaka vermek",
+            "B) Yalan söylemek",
+            "C) Selam vermek",
+            "D) İlim öğrenmek"
+        ],
+        "cevap": "B"
+    }
+]
+
+dogru = 0
+
+print("\n📘 İSLAMİ BİLGİLER TESTİ")
+print("-" * 35)
+
+for i, soru in enumerate(sorular, start=1):
+    print(f"\n{i}. {soru['soru']}")
+    for secenek in soru["secenekler"]:
+        print(secenek)
+
+    while True:
+        cevap = input("Cevabınız (A/B/C/D): ").upper()
+        if cevap in ["A", "B", "C", "D"]:
+            break
+        print("❗ Lütfen A, B, C veya D giriniz.")
+
+    if cevap == soru["cevap"]:
+        print("✅ Doğru!")
+        dogru += 1
+    else:
+        print(f"❌ Yanlış! Doğru cevap: {soru['cevap']}")
+
+puan = dogru * 10
+
+print("\n📊 TEST SONUCU")
+print("-" * 35)
+print(f"Doğru Sayısı : {dogru}")
+print(f"Yanlış Sayısı: {len(sorular) - dogru}")
+print(f"Puan        : {puan} / 100")
+
+# Başarı durumu
+if puan >= 70:
+    print("🎉 BAŞARI DURUMU: GEÇTİ")
+else:
+    print("❌ BAŞARI DURUMU: KALDI")
+
+
+      - - - - - - -  örnek çıktı  - - - - - - - - -
+
+Doğru Sayısı : 8
+Yanlış Sayısı: 2
+Puan        : 80 / 100
+🎉 BAŞARI DURUMU: GEÇTİ
+
+
+- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -- 
+
+- - - - - -- -  terminalde   çalıştır  - - - - - - - -
+
+python islami_test_gui.py
+
+
+
+
+ -- -- - - - - - - Tam ve modern kod - - - - - - - - - -
+
+import tkinter as tk
+from tkinter import messagebox
+
+# Sorular
+sorular = [
+    {
+        "soru": "İslam’ın beş şartından biri hangisidir?",
+        "secenekler": ["Zekât", "Oruç", "Hicret", "Cihat"],
+        "cevap": 1
+    },
+    {
+        "soru": "Kur’an-ı Kerim hangi ayda indirilmeye başlanmıştır?",
+        "secenekler": ["Muharrem", "Recep", "Ramazan", "Şaban"],
+        "cevap": 2
+    },
+    {
+        "soru": "İlk vahiy hangi melek aracılığıyla gelmiştir?",
+        "secenekler": ["Azrail", "Mikail", "İsrafil", "Cebrail"],
+        "cevap": 3
+    },
+    {
+        "soru": "Günde kaç vakit namaz farzdır?",
+        "secenekler": ["3", "4", "5", "6"],
+        "cevap": 2
+    },
+    {
+        "soru": "İslam’ın şartlarından biri değildir?",
+        "secenekler": ["Namaz", "Oruç", "Hac", "Kurban kesmek"],
+        "cevap": 3
+    },
+    {
+        "soru": "Kur’an-ı Kerim kaç sureden oluşur?",
+        "secenekler": ["110", "112", "114", "116"],
+        "cevap": 2
+    },
+    {
+        "soru": "İman ne demektir?",
+        "secenekler": [
+            "İbadet etmek",
+            "Allah’a ve iman esaslarına inanmak",
+            "İyi insan olmak",
+            "Günah işlememek"
+        ],
+        "cevap": 1
+    },
+    {
+        "soru": "Zekât kimlere verilir?",
+        "secenekler": [
+            "Akrabalara",
+            "Zenginlere",
+            "Fakir ve ihtiyaç sahiplerine",
+            "Herkese"
+        ],
+        "cevap": 2
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.) nerede doğmuştur?",
+        "secenekler": ["Medine", "Kudüs", "Mekke", "Taif"],
+        "cevap": 2
+    },
+    {
+        "soru": "Hangisi haramdır?",
+        "secenekler": [
+            "Sadaka vermek",
+            "Yalan söylemek",
+            "Selam vermek",
+            "İlim öğrenmek"
+        ],
+        "cevap": 1
+    }
+]
+
+soru_index = 0
+dogru = 0
+
+# Pencere
+root = tk.Tk()
+root.title("İslami Bilgiler Testi")
+root.geometry("500x350")
+root.resizable(False, False)
+
+# Soru etiketi
+lbl_soru = tk.Label(root, text="", wraplength=450, font=("Arial", 12))
+lbl_soru.pack(pady=20)
+
+# Seçenekler
+secim = tk.IntVar()
+radio_buttons = []
+
+for i in range(4):
+    rb = tk.Radiobutton(
+        root, text="", variable=secim, value=i, font=("Arial", 11)
+    )
+    rb.pack(anchor="w", padx=50)
+    radio_buttons.append(rb)
+
+# Sonraki butonu
+def sonraki():
+    global soru_index, dogru
+
+    if secim.get() == -1:
+        messagebox.showwarning("Uyarı", "Lütfen bir seçenek seçiniz!")
+        return
+
+    if secim.get() == sorular[soru_index]["cevap"]:
+        dogru += 1
+
+    soru_index += 1
+    secim.set(-1)
+
+    if soru_index < len(sorular):
+        soruyu_yukle()
+    else:
+        sonucu_goster()
+
+btn_sonraki = tk.Button(
+    root, text="Sonraki", command=sonraki, width=15
+)
+btn_sonraki.pack(pady=20)
+
+# Soruyu yükleme
+def soruyu_yukle():
+    lbl_soru.config(
+        text=f"{soru_index + 1}. {sorular[soru_index]['soru']}"
+    )
+    for i, rb in enumerate(radio_buttons):
+        rb.config(text=sorular[soru_index]["secenekler"][i])
+
+# Sonuç ekranı
+def sonucu_goster():
+    puan = dogru * 10
+    durum = "GEÇTİ 🎉" if puan >= 70 else "KALDI ❌"
+
+    messagebox.showinfo(
+        "Test Sonucu",
+        f"Doğru: {dogru}\n"
+        f"Yanlış: {len(sorular) - dogru}\n"
+        f"Puan: {puan}/100\n\n"
+        f"Durum: {durum}"
+    )
+    root.destroy()
+
+# Başlangıç
+secim.set(-1)
+soruyu_yukle()
+root.mainloop()
+
+
+
+- - - - - -- --   - - - - - - -- - - - -  -- - -   -  --- - - -
+
+- - - - - -  modern arayüzlü Tkinter (tkt) islami test - - - -
+
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+# ---------------- SORULAR ----------------
+sorular = [
+    {
+        "soru": "İslam’ın beş şartından biri hangisidir?",
+        "secenekler": ["Zekâ", "Oruç", "Hicret", "Cihat"],
+        "cevap": 1
+    },
+    {
+        "soru": "Kur’an-ı Kerim hangi ayda indirilmeye başlanmıştır?",
+        "secenekler": ["Muharrem", "Recep", "Ramazan", "Şaban"],
+        "cevap": 2
+    },
+    {
+        "soru": "İlk vahiy hangi melek aracılığıyla gelmiştir?",
+        "secenekler": ["Azrail", "Mikail", "İsrafil", "Cebrail"],
+        "cevap": 3
+    },
+    {
+        "soru": "Günde kaç vakit namaz farzdır?",
+        "secenekler": ["3", "4", "5", "6"],
+        "cevap": 2
+    },
+    {
+        "soru": "İslam’ın şartlarından biri değildir?",
+        "secenekler": ["Namaz", "Oruç", "Hac", "Kurban kesmek"],
+        "cevap": 3
+    },
+    {
+        "soru": "Kur’an-ı Kerim kaç sureden oluşur?",
+        "secenekler": ["110", "112", "114", "116"],
+        "cevap": 2
+    },
+    {
+        "soru": "İman ne demektir?",
+        "secenekler": [
+            "İbadet etmek",
+            "Allah’a ve iman esaslarına inanmak",
+            "İyi insan olmak",
+            "Günah işlememek"
+        ],
+        "cevap": 1
+    },
+    {
+        "soru": "Zekât kimlere verilir?",
+        "secenekler": [
+            "Akrabalara",
+            "Zenginlere",
+            "Fakir ve ihtiyaç sahiplerine",
+            "Herkese"
+        ],
+        "cevap": 2
+    },
+    {
+        "soru": "Hz. Muhammed (s.a.v.) nerede doğmuştur?",
+        "secenekler": ["Medine", "Kudüs", "Mekke", "Taif"],
+        "cevap": 2
+    },
+    {
+        "soru": "Hangisi haramdır?",
+        "secenekler": [
+            "Sadaka vermek",
+            "Yalan söylemek",
+            "Selam vermek",
+            "İlim öğrenmek"
+        ],
+        "cevap": 1
+    }
+]
+
+# ---------------- DEĞİŞKENLER ----------------
+soru_index = 0
+dogru = 0
+
+# ---------------- PENCERE ----------------
+root = tk.Tk()
+root.title("İslami Bilgiler Testi")
+root.geometry("520x420")
+root.configure(bg="#f4f6f8")
+root.resizable(False, False)
+
+style = ttk.Style()
+style.theme_use("clam")
+
+style.configure("TButton", font=("Segoe UI", 10), padding=6)
+style.configure("TRadiobutton", font=("Segoe UI", 10))
+style.configure("Title.TLabel", font=("Segoe UI", 14, "bold"))
+style.configure("Question.TLabel", font=("Segoe UI", 11))
+
+# ---------------- ANA ÇERÇEVE ----------------
+frame = ttk.Frame(root, padding=20)
+frame.pack(expand=True, fill="both")
+
+# Başlık
+lbl_title = ttk.Label(
+    frame,
+    text="📘 İslami Bilgiler Testi",
+    style="Title.TLabel"
+)
+lbl_title.pack(pady=(0, 15))
+
+# Soru
+lbl_soru = ttk.Label(
+    frame,
+    text="",
+    wraplength=460,
+    style="Question.TLabel"
+)
+lbl_soru.pack(pady=10)
+
+# Seçenekler
+secim = tk.IntVar(value=-1)
+radio_buttons = []
+
+for i in range(4):
+    rb = ttk.Radiobutton(
+        frame,
+        text="",
+        variable=secim,
+        value=i
+    )
+    rb.pack(anchor="w", pady=5, padx=20)
+    radio_buttons.append(rb)
+
+# ---------------- FONKSİYONLAR ----------------
+def soruyu_yukle():
+    lbl_soru.config(
+        text=f"{soru_index + 1}. {sorular[soru_index]['soru']}"
+    )
+    for i, rb in enumerate(radio_buttons):
+        rb.config(text=sorular[soru_index]["secenekler"][i])
+
+def sonraki():
+    global soru_index, dogru
+
+    if secim.get() == -1:
+        messagebox.showwarning("Uyarı", "Lütfen bir seçenek seçiniz!")
+        return
+
+    if secim.get() == sorular[soru_index]["cevap"]:
+        dogru += 1
+
+    soru_index += 1
+    secim.set(-1)
+
+    if soru_index < len(sorular):
+        soruyu_yukle()
+    else:
+        sonucu_goster()
+
+def sonucu_goster():
+    puan = dogru * 10
+    durum = "GEÇTİ 🎉" if puan >= 70 else "KALDI ❌"
+
+    messagebox.showinfo(
+        "Test Sonucu",
+        f"Doğru: {dogru}\n"
+        f"Yanlış: {len(sorular) - dogru}\n"
+        f"Puan: {puan}/100\n\n"
+        f"Durum: {durum}"
+    )
+    root.destroy()
+
+# Buton
+btn_sonraki = ttk.Button(
+    frame,
+    text="Sonraki ➜",
+    command=sonraki
+)
+btn_sonraki.pack(pady=20)
+
+# ---------------- BAŞLAT ----------------
+soruyu_yukle()
+root.mainloop()
+
+
+- - - - - - - - - - - - - - - - -  - - - - - - - - --   -  -

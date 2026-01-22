@@ -1,0 +1,130 @@
+#   10'lu ….2gurup kullanım kod örneği....toplam 20soru...başarılı olunursa  
+   
+#   diğer guruba geçiş oluyor.....kalırsa baştan başlıyor...
+
+#  Bu hazır ve test edildi....çalışıyor.....
+
+
+import tkinter as tk
+from tkinter import messagebox
+
+# ================== SORU GRUPLARI (10’LU) ==================
+
+question_groups = [
+    [   # ---- GRUP 1 ----
+        {"q": "Allah birdir inancı nedir?", "a": ["Tevhid", "Nübüvvet", "Ahiret", "İbadet"], "c": 0},
+        {"q": "İslamın şartı kaçtır?", "a": ["4", "5", "6", "7"], "c": 1},
+        {"q": "Son peygamber kimdir?", "a": ["Hz. Musa", "Hz. İsa", "Hz. Muhammed", "Hz. İbrahim"], "c": 2},
+        {"q": "Kur’an kaç suredir?", "a": ["112", "113", "114", "115"], "c": 2},
+        {"q": "Oruç hangi ayda tutulur?", "a": ["Recep", "Şaban", "Ramazan", "Muharrem"], "c": 2},
+        {"q": "Namaz günde kaç vakit?", "a": ["3", "4", "5", "6"], "c": 2},
+        {"q": "Kıble neresidir?", "a": ["Medine", "Kudüs", "Kâbe", "Mekke"], "c": 2},
+        {"q": "Zekât kimlere verilir?", "a": ["Zenginlere", "Fakirlere", "Devlete", "Herkese"], "c": 1},
+        {"q": "İlk vahiy hangi sure?", "a": ["Fatiha", "Alak", "Bakara", "Yasin"], "c": 1},
+        {"q": "İslam’ın kitabı nedir?", "a": ["Tevrat", "İncil", "Zebur", "Kur’an"], "c": 3},
+    ],
+
+    [   # ---- GRUP 2 ----
+        {"q": "İslam’da ilk müezzin kimdir?", "a": ["Hz. Ali", "Hz. Ömer", "Bilal-i Habeşi", "Ammar"], "c": 2},
+        {"q": "Hicret nereye yapıldı?", "a": ["Taif", "Medine", "Kudüs", "Şam"], "c": 1},
+        {"q": "Kur’an hangi dilde?", "a": ["Türkçe", "Arapça", "Farsça", "İbranice"], "c": 1},
+        {"q": "Namazın farzı hangisi?", "a": ["Dua", "Niyet", "Tesbih", "Salavat"], "c": 1},
+        {"q": "Kadir gecesi hangi ayda?", "a": ["Recep", "Şaban", "Ramazan", "Muharrem"], "c": 2},
+        {"q": "İslam’da kutsal gün?", "a": ["Pazar", "Cuma", "Cumartesi", "Pazartesi"], "c": 1},
+        {"q": "Peygamberimizin doğduğu şehir?", "a": ["Medine", "Mekke", "Taif", "Kudüs"], "c": 1},
+        {"q": "Zekâtın nisabı neyle ölçülür?", "a": ["Altın", "Gümüş", "Para", "Hepsi"], "c": 3},
+        {"q": "Ahiret ne demektir?", "a": ["Dünya", "Ölüm", "Ölümden sonrası", "Hayat"], "c": 2},
+        {"q": "İman kaç şarttır?", "a": ["4", "5", "6", "7"], "c": 2},
+    ]
+]
+
+# ================== TKINTER ==================
+
+root = tk.Tk()
+root.title("İslami Test – Seviye Atlama")
+root.geometry("700x450")
+
+group_index = 0
+question_index = 0
+score = 0
+answer_var = tk.IntVar(value=-1)
+
+question_label = tk.Label(root, font=("Segoe UI", 14), wraplength=650)
+question_label.pack(pady=20)
+
+radio_buttons = []
+for i in range(4):
+    rb = tk.Radiobutton(root, variable=answer_var, value=i, font=("Segoe UI", 12))
+    rb.pack(anchor="w", padx=100)
+    radio_buttons.append(rb)
+
+# ================== FONKSİYONLAR ==================
+
+def load_question():
+    q = question_groups[group_index][question_index]
+    question_label.config(text=f"Soru {question_index + 1}: {q['q']}")
+    answer_var.set(-1)
+    for i in range(4):
+        radio_buttons[i].config(text=q["a"][i])
+
+def next_question():
+    global question_index, score, group_index
+
+    if answer_var.get() == question_groups[group_index][question_index]["c"]:
+        score += 1
+
+    question_index += 1
+
+    # ---- Grup bitti ----
+    if question_index == 10:
+        if score >= 6:
+            messagebox.showinfo("Başarılı 🎉", f"{score}/10 doğru! Sonraki teste geçiyorsun.")
+            group_index += 1
+        else:
+            messagebox.showwarning("Başarısız ❌", f"{score}/10 doğru. Bu testi tekrar çözmelisin.")
+
+        # Reset
+        score = 0
+        question_index = 0
+
+        if group_index == len(question_groups):
+            messagebox.showinfo("Tebrikler 🌟", "Tüm testleri başarıyla tamamladın!")
+            root.destroy()
+            return
+
+    load_question()
+
+# ================== BUTON ==================
+
+tk.Button(root, text="İleri", font=("Segoe UI", 12), command=next_question).pack(pady=20)
+
+load_question()
+root.mainloop()
+
+'''
+
+✅ ÇALIŞAN – TEMİZ – ÖĞRETİCİ ÖRNEK (Tkinter)
+
+Aşağıdaki kod:
+
+2 adet 10’lu test grubu içerir (örnek)
+
+6 doğru şartı
+
+Başarılı → sonraki grup
+
+Başarısız → aynı grup tekrar
+
+
+- - - - - - - - - - - - - - - - - 
+
+🧠 Bu Kodda Öğrendiğin Şeyler
+
+✅ İç içe döngü mantığı
+✅ 10’lu test grupları
+✅ Başarıya göre seviye atlama
+✅ Tkinter pencereli test
+✅ Gerçek bir eğitim uygulaması altyapısı
+
+
+'''

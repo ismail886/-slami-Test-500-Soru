@@ -1,0 +1,381 @@
+✅ 01 den 100e kadar tüm sorular  ----------------------------
+
+                  
+
+all_questions = [
+    # TEST 1 (1-10)
+    {"q": "1. İmanın şartları kaç tanedir?", "a": ["4", "5", "6", "7"], "c": 2},
+    {"q": "2. Allah'ın 'el-Alîm' isminin anlamı nedir?", "a": ["Affedici", "Her şeyi bilen", "Güçlü", "Merhametli"], "c": 1},
+    {"q": "3. Meleklerin yaratıldığı varlık nedir?", "a": ["Ateş", "Toprak", "Su", "Nur"], "c": 3},
+    {"q": "4. Ahiret hayatının başlamasına ne denir?", "a": ["Haşir", "Kıyamet", "Mizan", "Sırat"], "c": 1},
+    {"q": "5. Peygamberlerin doğru sözlü olmalarına ne ad verilir?", "a": ["Emanet", "Fetanet", "Sıdk", "Tebliğ"], "c": 2},
+    {"q": "6. Kur'an-ı Kerim kaç sureden oluşur?", "a": ["112", "113", "114", "115"], "c": 2},
+    {"q": "7. İlk indirilen sure hangisidir?", "a": ["Fatiha", "Alak", "Nas", "Bakara"], "c": 1},
+    {"q": "8. Kur'an-ı Kerim hangi dilde indirilmiştir?", "a": ["İbranice", "Arapça", "Süryanice", "Farsça"], "c": 1},
+    {"q": "9. En uzun sure hangisidir?", "a": ["Nisa", "Âl-i İmran", "Bakara", "En'am"], "c": 2},
+    {"q": "10. Kur'an'da adı geçen tek kadın kimdir?", "a": ["Hz. Hatice", "Hz. Aişe", "Hz. Meryem", "Hz. Fatıma"], "c": 2},
+    
+    # TEST 2 (11-20)
+    {"q": "11. İslam'ın şartları kaç tanedir?", "a": ["4", "5", "6", "7"], "c": 1},
+    {"q": "12. İslam'da farz olan ilk ibadet hangisidir?", "a": ["Oruç", "Zekât", "Namaz", "Hac"], "c": 2},
+    {"q": "13. Hicret hangi şehirden hangi şehre yapılmıştır?", "a": ["Mekke–Taif", "Mekke–Medine", "Medine–Kudüs", "Mekke–Şam"], "c": 1},
+    {"q": "14. Peygamberimizin babasının adı nedir?", "a": ["Abdullah", "Ebu Talip", "Abbas", "Haris"], "c": 0},
+    {"q": "15. Oruç tutmanın farz olduğu ay hangisidir?", "a": ["Muharrem", "Şaban", "Ramazan", "Recep"], "c": 2},
+    {"q": "16. İslam'da ilk müezzin kimdir?", "a": ["Hz. Ali", "Hz. Ömer", "Bilal-i Habeşi", "Ammar"], "c": 2},
+    {"q": "17. Kur'an-ı Kerim'in indirilmeye başlandığı gece hangisidir?", "a": ["Miraç", "Berat", "Kadir", "Regaip"], "c": 2},
+    {"q": "18. Namazda kıyam ne demektir?", "a": ["Oturmak", "Secde", "Ayakta durmak", "Rükû"], "c": 2},
+    {"q": "19. Hz. Peygamber'in hanımlarına ne ad verilir?", "a": ["Müminler", "Ümmehatül Müminin", "Sahabeler", "Melikeler"], "c": 1},
+    {"q": "20. Kabe'nin ilk inşa edicisi kimdir?", "a": ["Hz. İbrahim", "Hz. Muhammed", "Hz. Nuh", "Hz. Âdem"], "c": 0},
+    
+    # TEST 3 (21-30)
+    {"q": "21. İslam'da haram olan içkiye ne denir?", "a": ["Hamr", "Meyte", "Hınzır", "Kan"], "c": 0},
+    {"q": "22. Cuma namazının farz olduğu rekat sayısı kaçtır?", "a": ["2", "3", "4", "6"], "c": 0},
+    {"q": "23. Zekat vermek kimlere farzdır?", "a": ["Herkese", "Fakirlere", "Nisap miktarı mala sahip olanlara", "Zenginlere"], "c": 2},
+    {"q": "24. İslam'da ilk kıble neresidir?", "a": ["Kabe", "Mescid-i Aksa", "Mescid-i Nebevi", "Mescid-i Haram"], "c": 1},
+    {"q": "25. Peygamberimizin doğum yılına ne ad verilir?", "a": ["Hicret Yılı", "Fil Yılı", "Hendek Yılı", "Fetih Yılı"], "c": 1},
+    {"q": "26. Namazda okunan en kısa sure hangisidir?", "a": ["İhlas", "Kevser", "Felak", "Nas"], "c": 1},
+    {"q": "27. Hac ibadetinin farz olduğu İslami ay hangisidir?", "a": ["Zilkade", "Zilhicce", "Muharrem", "Safer"], "c": 1},
+    {"q": "28. Peygamberimize ilk vahiy hangi melek tarafından getirilmiştir?", "a": ["Mikail", "Azrail", "İsrafil", "Cebrail"], "c": 3},
+    {"q": "29. İslam'da niyet hangi ibadet için şarttır?", "a": ["Zekât", "Oruç", "Namaz", "Hepsi"], "c": 3},
+    {"q": "30. Peygamberimizin doğduğu şehir hangisidir?", "a": ["Medine", "Mekke", "Kudüs", "Taif"], "c": 1},
+    
+    # TEST 4 (31-40)
+    {"q": "31. Namazda rükûdan sonra doğrulmaya ne denir?", "a": ["Secde", "Kıyam", "Kavme", "Celse"], "c": 2},
+    {"q": "32. İslam'da anne-babaya iyi davranmaya ne denir?", "a": ["Takva", "İhsan", "Birr", "Sabır"], "c": 2},
+    {"q": "33. Kur'an'da 'Oku' anlamına gelen ilk kelime hangisidir?", "a": ["Elhamdülillah", "İkra", "Kul", "Allah"], "c": 1},
+    {"q": "34. Peygamberimizin sütannesi kimdir?", "a": ["Amine", "Halime", "Ümmü Gülsüm", "Safiye"], "c": 1},
+    {"q": "35. İslam'da cuma namazı kimlere farzdır?", "a": ["Kadınlara", "Çocuklara", "Erkeklere", "Yolculara"], "c": 2},
+    {"q": "36. Kur'an'ın son suresi hangisidir?", "a": ["Felak", "Nas", "İhlas", "Kevser"], "c": 1},
+    {"q": "37. 'Allah yolunda mücadele' anlamına gelen kavram hangisidir?", "a": ["Hicret", "Cihat", "Tebliğ", "Sabır"], "c": 1},
+    {"q": "38. Namazda iki secde arasında oturmaya ne denir?", "a": ["Kavme", "Kıyam", "Celse", "Rükû"], "c": 2},
+    {"q": "39. İslam'da yalan söylememek hangi sıfatla ilgilidir?", "a": ["İsmet", "Sıdk", "Emanet", "Fetanet"], "c": 1},
+    {"q": "40. Peygamberimizin en küçük kızı kimdir?", "a": ["Zeynep", "Rukiye", "Ümmü Gülsüm", "Fatıma"], "c": 3},
+    
+    # TEST 5 (41-50)
+    {"q": "41. Kur'an'da besmele ile başlayan sure hangisidir?", "a": ["Enfal", "Neml", "Tevbe", "Yasin"], "c": 1},
+    {"q": "42. Oruçluyken bilerek yemek yemek neyi bozar?", "a": ["Abdest", "Namaz", "Oruç", "Gusül"], "c": 2},
+    {"q": "43. İslam'da komşuluk hakkına ne ad verilir?", "a": ["Kul hakkı", "İnsan hakkı", "Adalet", "Merhamet"], "c": 0},
+    {"q": "44. Peygamberimize verilen ilk mucize hangisidir?", "a": ["Miraç", "Kur'an", "Ay'ın yarılması", "İsra"], "c": 1},
+    {"q": "45. Kur'an'ın indirildiği dağın adı nedir?", "a": ["Uhud", "Nur", "Sevr", "Cudi"], "c": 1},
+    {"q": "46. İslam'da sadaka vermek hangi davranışın göstergesidir?", "a": ["Cimrilik", "İbadet", "Yardımlaşma", "Sabır"], "c": 2},
+    {"q": "47. Peygamberimizin kabri hangi şehirde bulunmaktadır?", "a": ["Mekke", "Kudüs", "Medine", "Taif"], "c": 2},
+    {"q": "48. Kur'an'ın toplanması hangi halife döneminde tamamlanmıştır?", "a": ["Hz. Ali", "Hz. Ömer", "Hz. Osman", "Hz. Ebubekir"], "c": 2},
+    {"q": "49. İslam'da içten ve samimi ibadete ne denir?", "a": ["İhsan", "İhlas", "Takva", "Sabır"], "c": 1},
+    {"q": "50. Namazdan sonra '33 defa' okunan zikir hangisidir?", "a": ["Elhamdülillah", "Allahu Ekber", "Sübhanallah", "Hepsi"], "c": 3},
+    
+    # TEST 6 (51-60)
+    {"q": "51. Kur'an'da adı geçen tek sahabe kimdir?", "a": ["Hz. Ali", "Zeyd bin Harise", "Bilal-i Habeşi", "Hz. Ebubekir"], "c": 1},
+    {"q": "52. İslam'da yoksula verilen karşılıksız yardıma ne denir?", "a": ["Zekât", "Sadaka", "Fitre", "Hediye"], "c": 1},
+    {"q": "53. Fitre hangi ibadetle ilgilidir?", "a": ["Namaz", "Oruç", "Hac", "Zekât"], "c": 1},
+    {"q": "54. Peygamberimizin mesleği neydi?", "a": ["Çiftçi", "Demirci", "Tüccar", "Öğretmen"], "c": 2},
+    {"q": "55. Kur'an'da 'Rahman' suresi kaç ayetten oluşur?", "a": ["55", "65", "78", "88"], "c": 2},
+    {"q": "56. İslam'da affetmek hangi erdemle ilgilidir?", "a": ["Sabır", "Merhamet", "Cesaret", "Takva"], "c": 1},
+    {"q": "57. Peygamberimizin vefat ettiği yaş kaçtır?", "a": ["60", "61", "62", "63"], "c": 3},
+    {"q": "58. İslam'da helal kazanç neyi temsil eder?", "a": ["Bereket", "Güç", "Ün", "Makam"], "c": 0},
+    {"q": "59. Kur'an'da 'anne' anlamında kullanılan kelime hangisidir?", "a": ["Ümm", "Valid", "Ebe", "Anne"], "c": 0},
+    {"q": "60. İslam'da kibirli olmak hangi davranıştır?", "a": ["Günah", "Sevap", "Farz", "Sünnet"], "c": 0},
+    
+    # TEST 7 (61-70)
+    {"q": "61. Peygamberimizin son hutbesine ne ad verilir?", "a": ["Veda Hutbesi", "Miraç Hutbesi", "Cuma Hutbesi", "Tebliğ Hutbesi"], "c": 0},
+    {"q": "62. Namazda okunan kısa surelere ne denir?", "a": ["Uzun sure", "Mekki sure", "Kısa sure", "Zamm-ı sure"], "c": 3},
+    {"q": "63. Kur'an'da cennet için kullanılan isim hangisidir?", "a": ["Sırat", "Firdevs", "Araf", "Kevser"], "c": 1},
+    {"q": "64. İslam'da israf neyi ifade eder?", "a": ["Tasarruf", "Ölçülü olmak", "Gereksiz harcama", "Yardımlaşma"], "c": 2},
+    {"q": "65. Peygamberimizin kabri hangi mescidin içindedir?", "a": ["Mescid-i Haram", "Mescid-i Aksa", "Mescid-i Nebevi", "Kuba Mescidi"], "c": 2},
+    {"q": "66. Kur'an'da cehennem için kullanılan isim hangisidir?", "a": ["Kevser", "Sırat", "Cehim", "Firdevs"], "c": 2},
+    {"q": "67. İslam'da doğru sözlülüğe ne denir?", "a": ["Sıdk", "Emanet", "İsmet", "Fetanet"], "c": 0},
+    {"q": "68. Peygamberimizin en yakın arkadaşı kimdir?", "a": ["Hz. Ömer", "Hz. Ali", "Hz. Ebubekir", "Hz. Osman"], "c": 2},
+    {"q": "69. Kur'an'ın korunmasını Allah'ın üstlendiği ayet hangi surededir?", "a": ["Bakara", "Hicr", "Yasin", "Nisa"], "c": 1},
+    {"q": "70. İslam'da misafire ikram etmek ne sayılır?", "a": ["Zorunluluk", "Günah", "Sevap", "İsraf"], "c": 2},
+    
+    # TEST 8 (71-80)
+    {"q": "71. Peygamberimizin 'güzel ahlak' ile ilgili sözü hangi kavramı anlatır?", "a": ["İbadet", "Ahlak", "Takva", "Sabır"], "c": 1},
+    {"q": "72. İslam'da helal–haramı belirleyen temel kaynak hangisidir?", "a": ["Hadis", "İcma", "Kıyas", "Kur'an"], "c": 3},
+    {"q": "73. Kur'an'ın ana konusu nedir?", "a": ["Tarih", "Ahlak", "İnanç", "Hepsi"], "c": 3},
+    {"q": "74. İslam'da sözünde durmak hangi kavramla ilgilidir?", "a": ["Sabır", "Emanet", "Sıdk", "Takva"], "c": 1},
+    {"q": "75. Peygamberimizin son peygamber olması ne ile ifade edilir?", "a": ["Risalet", "Nübüvvet", "Hatm-i Nübüvvet", "Tebliğ"], "c": 2},
+    {"q": "76. İslam'da insanların eşit olduğunu vurgulayan hutbe hangisidir?", "a": ["Cuma Hutbesi", "Veda Hutbesi", "Miraç Hutbesi", "Tebliğ Hutbesi"], "c": 1},
+    {"q": "77. Peygamberlerin Allah'tan aldıkları emirleri insanlara eksiksiz iletmesine ne denir?", "a": ["Emanet", "Tebliğ", "İsmet", "Fetanet"], "c": 1},
+    {"q": "78. Namaz kaç rekattır (farz namazların toplamı günlük)?", "a": ["15", "17", "20", "40"], "c": 1},
+    {"q": "79. İslam'ın beş şartından biri olan şehadet nedir?", "a": ["Tanıklık", "Namaz", "Oruç", "Zekât"], "c": 0},
+    {"q": "80. Kur'an'da kaç peygamberin ismi geçer?", "a": ["23", "25", "27", "30"], "c": 1},
+    
+    # TEST 9 (81-90)
+    {"q": "81. Hz. Muhammed'in peygamberliğe başladığı yaş kaçtır?", "a": ["30", "35", "40", "45"], "c": 2},
+    {"q": "82. İslam'da namaz kılmanın vacip olduğu yaş kaçtır?", "a": ["7", "10", "12", "15"], "c": 3},
+    {"q": "83. Kur'an'ın ilk mushaf haline getirilmesi hangi halife dönemindedir?", "a": ["Hz. Ebubekir", "Hz. Ömer", "Hz. Osman", "Hz. Ali"], "c": 0},
+    {"q": "84. Bedir Savaşı hangi yılda olmuştur?", "a": ["1. Hicri yıl", "2. Hicri yıl", "3. Hicri yıl", "5. Hicri yıl"], "c": 1},
+    {"q": "85. İslam'da sabır hangi kategoriye girer?", "a": ["Farz", "Vacip", "Fazilet", "Sünnet"], "c": 2},
+    {"q": "86. Peygamberimizin annesi kimdir?", "a": ["Amine", "Halime", "Hatice", "Aişe"], "c": 0},
+    {"q": "87. İslam'da gusül abdesti hangi durumda alınır?", "a": ["Her namaz öncesi", "Sadece cuma", "Cünüplükten sonra", "Her gün"], "c": 2},
+    {"q": "88. Mekke'nin fethi hangi yılda gerçekleşmiştir?", "a": ["6. Hicri yıl", "8. Hicri yıl", "10. Hicri yıl", "11. Hicri yıl"], "c": 1},
+    {"q": "89. İslam'da tevhid ne demektir?", "a": ["Allah'ın birliği", "Namaz", "Oruç", "Hac"], "c": 0},
+    {"q": "90. Kur'an'ın nazil olduğu ilk mağaranın adı nedir?", "a": ["Sevr", "Hira", "Uhud", "Nur"], "c": 1},
+    
+    # TEST 10 (91-100)
+    {"q": "91. İslam'da kadınların başını örtmesine ne denir?", "a": ["Tesettür", "Takva", "Edep", "İffet"], "c": 0},
+    {"q": "92. Peygamberimizin ilk eşi kimdir?", "a": ["Aişe", "Hatice", "Hafsa", "Sevde"], "c": 1},
+    {"q": "93. İslam'da faiz ne anlama gelir?", "a": ["Haram kazanç", "Helal kazanç", "Ticaret", "Yardım"], "c": 0},
+    {"q": "94. Kur'an'da en çok geçen peygamber kimdir?", "a": ["Hz. Muhammed", "Hz. İbrahim", "Hz. Musa", "Hz. İsa"], "c": 2},
+    {"q": "95. İslam'da kurban kesmek hangi ibadetle ilgilidir?", "a": ["Ramazan", "Hac", "Cuma", "Zekât"], "c": 1},
+    {"q": "96. Namazda kaç defa secde yapılır (bir rekatta)?", "a": ["1", "2", "3", "4"], "c": 1},
+    {"q": "97. İslam'da temizliğe verilen önem hangi sözle ifade edilir?", "a": ["İmanın yarısı", "İmanın şartı", "İmanın tamamı", "Sünnet"], "c": 0},
+    {"q": "98. Kur'an'ın en kısa suresi hangisidir?", "a": ["Kevser", "İhlas", "Nas", "Felak"], "c": 0},
+    {"q": "99. İslam'da namaz kılarken hangi yön önemlidir?", "a": ["Doğu", "Batı", "Kıble", "Kuzey"], "c": 2},
+    {"q": "100. Peygamberimizin vefat tarihi hangi ayda olmuştur?", "a": ["Muharrem", "Safer", "Rebiulevvel", "Recep"], "c": 2},
+]
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+✅ CEVAP ANAHTARI (1–100)
+TEST 1 (1–10)
+
+C – 6
+
+B – Her şeyi bilen
+
+D – Nur
+
+B – Kıyamet
+
+C – Sıdk
+
+C – 114
+
+B – Alak
+
+B – Arapça
+
+C – Bakara
+
+C – Hz. Meryem
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+TEST 2 (11–20)
+
+B – 5
+
+C – Namaz
+
+B – Mekke–Medine
+
+A – Abdullah
+
+C – Ramazan
+
+C – Bilal-i Habeşi
+
+C – Kadir
+
+C – Ayakta durmak
+
+B – Ümmehatül Müminin
+
+A – Hz. İbrahim
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+TEST 3 (21–30)
+
+A – Hamr
+
+A – 2
+
+C – Nisap miktarı mala sahip olanlara
+
+B – Mescid-i Aksa
+
+B – Fil Yılı
+
+B – Kevser
+
+B – Zilhicce
+
+D – Cebrail
+
+D – Hepsi
+
+B – Mekke
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 4 (31–40)
+
+C – Kavme
+
+C – Birr
+
+B – İkra
+
+B – Halime
+
+C – Erkeklere
+
+B – Nas
+
+B – Cihat
+
+C – Celse
+
+B – Sıdk
+
+D – Fatıma
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 5 (41–50)
+
+B – Neml
+
+C – Oruç
+
+A – Kul hakkı
+
+B – Kur’an
+
+B – Nur
+
+C – Yardımlaşma
+
+C – Medine
+
+C – Hz. Osman
+
+B – İhlas
+
+D – Hepsi
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 6 (51–60)
+
+B – Zeyd bin Harise
+
+B – Sadaka
+
+B – Oruç
+
+C – Tüccar
+
+C – 78
+
+B – Merhamet
+
+D – 63
+
+A – Bereket
+
+A – Ümm
+
+A – Günah
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 7 (61–70)
+
+A – Veda Hutbesi
+
+D – Zamm-ı sure
+
+B – Firdevs
+
+C – Gereksiz harcama
+
+C – Mescid-i Nebevi
+
+C – Cehim
+
+A – Sıdk
+
+C – Hz. Ebubekir
+
+B – Hicr
+
+C – Sevap
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 8 (71–80)
+
+B – Ahlak
+
+D – Kur’an
+
+D – Hepsi
+
+B – Emanet
+
+C – Hatm-i Nübüvvet
+
+B – Veda Hutbesi
+
+B – Tebliğ
+
+B – 17
+
+A – Tanıklık
+
+B – 25
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 9 (81–90)
+
+C – 40
+
+D – 15
+
+A – Hz. Ebubekir
+
+B – 2. Hicri yıl
+
+C – Fazilet
+
+A – Amine
+
+C – Cünüplükten sonra
+
+B – 8. Hicri yıl
+
+A – Allah’ın birliği
+
+B – Hira
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
+TEST 10 (91–100)
+
+A – Tesettür
+
+B – Hatice
+
+A – Haram kazanç
+
+C – Hz. Musa
+
+B – Hac
+
+B – 2
+
+A – İmanın yarısı
+
+A – Kevser
+
+C – Kıble
+
+C – Rebiulevvel
+
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+
