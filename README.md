@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🕌 İslami Test Soruları - Tkinter Uygulaması
 
 Bu klasör, İslami konularda test uygulamalarından oluşmaktadır. Her test dosyası Python ve Tkinter kullanarak oluşturulmuş interaktif quiz uygulamalarıdır.
@@ -246,3 +247,6 @@ pip install tkinter pillow qrcode reportlab
 
 **🕌 İslami Bilgi Testleri - Kapsamlı Eğitim Platformu**  
 *Tarih: 20 Ocak 2026 | Sürüm: 1.0 | Dil: Türkçe*
+=======
+# -Islamı-Test-500-Soru
+>>>>>>> 06207658c7eaf8ea54c5d193596a5882a893ae2c
